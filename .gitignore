@@ -2,3 +2,5 @@
 *.project
 BMSino/.settings/
 *.cproject
+BMSino/Release/
+BMSino/.ino.cpp

@@ -8,7 +8,7 @@
 #include "BMSino.h"
 #include <Arduino.h>
 
-void init_BMSino(){
+void BMSino::begin(){
 	pinMode(ACTIVITY_LED, OUTPUT);
 	pinMode(AD7280_CNVST, OUTPUT);
 	//pinMode(DIN_1, INPUT);
@@ -26,5 +26,6 @@ void init_BMSino(){
 	pinMode(I2C_SDA, OUTPUT);
 	pinMode(I2C_SCL, OUTPUT);
 }
+
 
 

@@ -33,6 +33,14 @@
 #define	I2C_SDA					SDA
 #define	I2C_SCL					SCL
 
-void init_BMSino();
+
+class BMSino{
+	public:
+		BMSino();
+		void begin();
+
+	private:
+
+};
 
 #endif /* BMSINO_H */

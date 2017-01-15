@@ -5,7 +5,8 @@
 
 void setup()
 {
-	init_BMSino();	// initialize BMSino pins
+	BMSino myBMS;
+	myBMS.begin();
 }
 
 
