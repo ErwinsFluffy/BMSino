@@ -8,6 +8,10 @@
 #include "BMSino.h"
 #include <Arduino.h>
 
+BMSino::BMSino(){
+
+}
+
 void BMSino::begin(){
 	pinMode(ACTIVITY_LED, OUTPUT);
 	pinMode(AD7280_CNVST, OUTPUT);
