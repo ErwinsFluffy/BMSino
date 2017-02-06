@@ -14,6 +14,7 @@
 	//**************************************************************
 	// MF58 by Cantherm 10kohm, B3950
 	// http://www.cantherm.com/media/productPDF/cantherm_mf58_1.pdf
+	// ADC : 10 bit
 	//**************************************************************
 	//							 |
 	//						 ___/_
@@ -24,26 +25,24 @@
 	//					Vout
 	//
 	//**************************************************************
-
 #define MF58_LUT_SIZE 16
 static const lut_t MF58[MF58_LUT_SIZE] ={
-		{.ADC_value=	35	, .Temperature=		2009	},	    // 	125.56	°C
-		{.ADC_value=	44	, .Temperature=		1859	},	    // 	116.2	°C
-		{.ADC_value=	56	, .Temperature=		1707	},	    // 	106.71	°C
-		{.ADC_value=	72	, .Temperature=		1555	},	    // 	97.17	°C
-		{.ADC_value=	93	, .Temperature=		1404	},	    // 	87.76	°C
-		{.ADC_value=	120	, .Temperature=		1258	},	    // 	78.62	°C
-		{.ADC_value=	156	, .Temperature=		1110	},	    // 	69.37	°C
-		{.ADC_value=	203	, .Temperature=		962		},	    // 	60.15	°C
-		{.ADC_value=	263	, .Temperature=		816		},	    // 	51	°C
-		{.ADC_value=	338	, .Temperature=		669		},	    // 	41.83	°C
-		{.ADC_value=	427	, .Temperature=		524		},	    // 	32.74	°C
-		{.ADC_value=	528	, .Temperature=		378		},	    // 	23.6	°C
-		{.ADC_value=	634	, .Temperature=		231		},	    // 	14.45	°C
-		{.ADC_value=	735	, .Temperature=		86		},	    // 	5.38	°C
-		{.ADC_value=	824	, .Temperature=		-61		},	    // 	-3.79	°C
-		{.ADC_value=	894	, .Temperature=		-206	},	    // 	-12.88	°C
-
+		{.ADC_value=	35		, .Temperature=	2009	},	    // 	0.17	V	@	125.56	°C
+		{.ADC_value=	45		, .Temperature=	1845	},	    // 	0.22	V	@	115.30	°C
+		{.ADC_value=	58		, .Temperature=	1686	},	    // 	0.28	V	@	105.36	°C
+		{.ADC_value=	75		, .Temperature=	1530	},	    // 	0.37	V	@	95.65	°C
+		{.ADC_value=	98		, .Temperature=	1374	},	    // 	0.48	V	@	85.86	°C
+		{.ADC_value=	129		, .Temperature=	1217	},	    // 	0.63	V	@	76.06	°C
+		{.ADC_value=	170		, .Temperature=	1062	},	    // 	0.83	V	@	66.37	°C
+		{.ADC_value=	225		, .Temperature=	905		},	    // 	1.10	V	@	56.54	°C
+		{.ADC_value=	296		, .Temperature=	748		},	    // 	1.45	V	@	46.73	°C
+		{.ADC_value=	384		, .Temperature=	591		},	    // 	1.88	V	@	36.96	°C
+		{.ADC_value=	487		, .Temperature=	435		},	    // 	2.38	V	@	27.22	°C
+		{.ADC_value=	599		, .Temperature=	280		},	    // 	2.92	V	@	17.47	°C
+		{.ADC_value=	710		, .Temperature=	123		},	    // 	3.47	V	@	7.70	°C
+		{.ADC_value=	808		, .Temperature=	-32		},	    // 	3.95	V	@	-2.00	°C
+		{.ADC_value=	886		, .Temperature=	-187	},	    // 	4.33	V	@	-11.70	°C
+		{.ADC_value=	942		, .Temperature=	-342	},	    // 	4.60	V	@	-21.39	°C
 };
 #endif
 
@@ -51,6 +50,7 @@ static const lut_t MF58[MF58_LUT_SIZE] ={
 	//**************************************************************
 	// Vishay NTCLE100E3103JB0
 	// http://datasheet.octopart.com/NTCLE100E3103JB0-Vishay-Dale-datasheet-62311684.pdf
+	// ADC : 12 bit
 	//**************************************************************
 	//							 			 |
 	//						 			  ___/_
@@ -61,56 +61,92 @@ static const lut_t MF58[MF58_LUT_SIZE] ={
 	//						AD7280 AUXterm == NTC CHx
 	//
 	//**************************************************************
-
 #define NTCLE100E3103JB0_LUT_SIZE 16
 static const lut_t NTCLE100E3103JB0[NTCLE100E3103JB0_LUT_SIZE] ={
-		{.ADC_value=	138		, .Temperature=		2004	},	    // 	125.24	°C
-		{.ADC_value=	173		, .Temperature=		1857	},	    // 	116.08	°C
-		{.ADC_value=	219		, .Temperature=		1710	},	    // 	106.87	°C
-		{.ADC_value=	279		, .Temperature=		1564	},	    // 	97.74	°C
-		{.ADC_value=	358		, .Temperature=		1418	},	    // 	88.62	°C
-		{.ADC_value=	462		, .Temperature=		1273	},	    // 	79.53	°C
-		{.ADC_value=	599		, .Temperature=		1127	},	    // 	70.45	°C
-		{.ADC_value=	778		, .Temperature=		982		},	    // 	61.37	°C
-		{.ADC_value=	1009	, .Temperature=		837		},	    // 	52.28	°C
-		{.ADC_value=	1298	, .Temperature=		691		},	    // 	43.22	°C
-		{.ADC_value=	1647	, .Temperature=		546		},	    // 	34.14	°C
-		{.ADC_value=	2045	, .Temperature=		401		},	    // 	25.07	°C
-		{.ADC_value=	2468	, .Temperature=		256		},	    // 	15.98	°C
-		{.ADC_value=	2880	, .Temperature=		110		},	    // 	6.9		°C
-		{.ADC_value=	3245	, .Temperature=		-35		},	    // 	-2.19	°C
-		{.ADC_value=	3538	, .Temperature=		-180	},	    // 	-11.26	°C
+		{.ADC_value=	138		, .Temperature=	2004	},	    // 	0.18	V	@	125.24	°C
+		{.ADC_value=	176		, .Temperature=	1846	},	    // 	0.22	V	@	115.40	°C
+		{.ADC_value=	226		, .Temperature=	1691	},	    // 	0.29	V	@	105.67	°C
+		{.ADC_value=	293		, .Temperature=	1535	},	    // 	0.37	V	@	95.93	°C
+		{.ADC_value=	383		, .Temperature=	1379	},	    // 	0.49	V	@	86.19	°C
+		{.ADC_value=	504		, .Temperature=	1224	},	    // 	0.64	V	@	76.48	°C
+		{.ADC_value=	666		, .Temperature=	1068	},	    // 	0.85	V	@	66.77	°C
+		{.ADC_value=	881		, .Temperature=	913		},	    // 	1.12	V	@	57.04	°C
+		{.ADC_value=	1159	, .Temperature=	757		},	    // 	1.47	V	@	47.34	°C
+		{.ADC_value=	1506	, .Temperature=	602		},	    // 	1.91	V	@	37.63	°C
+		{.ADC_value=	1915	, .Temperature=	447		},	    // 	2.43	V	@	27.94	°C
+		{.ADC_value=	2362	, .Temperature=	292		},	    // 	3.00	V	@	18.25	°C
+		{.ADC_value=	2808	, .Temperature=	137		},	    // 	3.56	V	@	8.54	°C
+		{.ADC_value=	3207	, .Temperature=	-19		},	    // 	4.07	V	@	-1.16	°C
+		{.ADC_value=	3527	, .Temperature=	-174	},	    // 	4.48	V	@	-10.87	°C
+		{.ADC_value=	3758	, .Temperature=	-330	},	    // 	4.77	V	@	-20.60	°C
+};
+#endif
+
+#ifdef USE_NTC_LOWSIDE_B4100_5V_100Kohm
+	//**************************************************************
+	// Vishay NTCS0603E3104JXT
+	// http://www.mouser.com/ds/2/427/ntcs0603-109195.pdf
+	// ADC : 10 bit
+	//**************************************************************
+	//							 |
+	//						 ___/_
+	//     +5V <--/\/\/--@--|__/__|---|| GND
+	//                   |    /
+	//		    100kohm  |   NTC 100k B4100
+	//					 |
+	//					Vout
+	//
+	//**************************************************************
+
+#define NTCS0603E3104JXT_LUT_SIZE 16
+static const lut_t NTCS0603E3104JXT[NTCS0603E3104JXT_LUT_SIZE] ={
+		{.ADC_value=	31		, .Temperature=	2008	},	    // 	0.15	V	@	125.50	°C
+		{.ADC_value=	40		, .Temperature=	1848	},	    // 	0.20	V	@	115.52	°C
+		{.ADC_value=	52		, .Temperature=	1691	},	    // 	0.25	V	@	105.66	°C
+		{.ADC_value=	68		, .Temperature=	1535	},	    // 	0.33	V	@	95.95	°C
+		{.ADC_value=	90		, .Temperature=	1378	},	    // 	0.44	V	@	86.13	°C
+		{.ADC_value=	120		, .Temperature=	1221	},	    // 	0.59	V	@	76.32	°C
+		{.ADC_value=	161		, .Temperature=	1063	},	    // 	0.79	V	@	66.47	°C
+		{.ADC_value=	216		, .Temperature=	906		},	    // 	1.05	V	@	56.64	°C
+		{.ADC_value=	288		, .Temperature=	749		},	    // 	1.41	V	@	46.83	°C
+		{.ADC_value=	378		, .Temperature=	593		},	    // 	1.85	V	@	37.09	°C
+		{.ADC_value=	484		, .Temperature=	438		},	    // 	2.36	V	@	27.39	°C
+		{.ADC_value=	600		, .Temperature=	283		},	    // 	2.93	V	@	17.66	°C
+		{.ADC_value=	714		, .Temperature=	127		},	    // 	3.49	V	@	7.95	°C
+		{.ADC_value=	815		, .Temperature=	-30		},	    // 	3.98	V	@	0.00	°C
+		{.ADC_value=	894		, .Temperature=	-187	},	    // 	4.37	V	@	-11.66	°C
+		{.ADC_value=	949		, .Temperature=	-343	},	    // 	4.63	V	@	-21.45	°C
 };
 #endif
 
 
-int16_t THERMISTOR::interpolateLinearly(const lut_t* thermistorLUT_l, uint8_t LUTsize_l, uint16_t ADC_value_l){
+int16_t THERMISTOR::interpolateLinearly(const lut_t* thermistorLUT_pl, uint8_t LUTsize_l, uint16_t ADC_value_l){
 	uint8_t i=0;
-	while( i < LUTsize_l && ADC_value_l > thermistorLUT_l[i].ADC_value){	// find the nearest ADC_value (above the ADC_value_l) point in LUT -> ADC_value[i]
+	while( i < LUTsize_l && ADC_value_l > thermistorLUT_pl[i].ADC_value){ // find the nearest ADC_value (above the ADC_value_l) point in LUT -> ADC_value[i]
 		i++;
 	}
 	if(i == LUTsize_l){ 	//make sure the point isn't past the end of the table
-		return thermistorLUT_l[i-1].Temperature;
+		return thermistorLUT_pl[i-1].Temperature;
 	}
 	if( i == 0){			//make sure the point isn't before the beginning of the table
-		return thermistorLUT_l[i].Temperature;
+		return thermistorLUT_pl[i].Temperature;
 	}
 #ifdef THERMISTOR_DEBUG
 	Serial.print("i = ");
 	Serial.println(i);
 #endif
 	// calculate the slope of the straight line between two points ( ADC_value[i-1] and ADC_value[i] )
-	float m = (float)(thermistorLUT_l[i].Temperature - thermistorLUT_l[i-1].Temperature) /
-				(float)(thermistorLUT_l[i].ADC_value - thermistorLUT_l[i-1].ADC_value);
-	float q = (float)thermistorLUT_l[i-1].Temperature - m * (float)thermistorLUT_l[i-1].ADC_value;
+	float m = (float)(thermistorLUT_pl[i].Temperature - thermistorLUT_pl[i-1].Temperature) /
+				(float)(thermistorLUT_pl[i].ADC_value - thermistorLUT_pl[i-1].ADC_value);
+	float q = (float)thermistorLUT_pl[i-1].Temperature - m * (float)thermistorLUT_pl[i-1].ADC_value;
 #ifdef THERMISTOR_DEBUG
-	Serial.print(thermistorLUT_l[i].Temperature);
+	Serial.print(thermistorLUT_pl[i].Temperature);
 	Serial.print("-");
-	Serial.print(thermistorLUT_l[i-1].Temperature);
+	Serial.print(thermistorLUT_pl[i-1].Temperature);
 	Serial.print("\\");
-	Serial.print(thermistorLUT_l[i].ADC_value);
+	Serial.print(thermistorLUT_pl[i].ADC_value);
 	Serial.print("-");
-	Serial.print(thermistorLUT_l[i-1].ADC_value);
+	Serial.print(thermistorLUT_pl[i-1].ADC_value);
 	Serial.print("m = ");
 	Serial.println(m);
 	Serial.print("q = ");
@@ -123,16 +159,28 @@ int16_t THERMISTOR::interpolateLinearly(const lut_t* thermistorLUT_l, uint8_t LU
 THERMISTOR::THERMISTOR(){
 }
 
-boolean THERMISTOR::begin(thermistorType_t thermistorType_l){
-		thermistorType = thermistorType_l;
+boolean THERMISTOR::begin(thermistorType_t thermistorType_l, uint8_t ADCpin_l){
+		if(thermistorType_l == CELL_NTC){			// BMSino CELL'S 10k NTCs
+			lut_p = NTCLE100E3103JB0;
+			lut_size = NTCLE100E3103JB0_LUT_SIZE;
+		}
+		else if(thermistorType_l == ONBOARD_NTC){	// BMSino BOARD 100k NTC
+			lut_p = NTCS0603E3104JXT;
+			lut_size = NTCS0603E3104JXT_LUT_SIZE;
+		}
+		else if(thermistorType_l == TEST_NTC){		// BMSino BOARD 100k NTC
+			lut_p = MF58;
+			lut_size = MF58_LUT_SIZE;
+		}
+		ADCpin = ADCpin_l;
 		return true;
 }
 
-int16_t THERMISTOR::getTemperatureFromADCValue(uint8_t ADCpin_l){
+int16_t THERMISTOR::getTemperature(){
 	uint16_t ADC_sample;
 	int16_t temp;
-	ADC_sample = analogRead(ADCpin_l);
-	temp = interpolateLinearly(MF58, MF58_LUT_SIZE, ADC_sample);
+	ADC_sample = analogRead(ADCpin);
+	temp = interpolateLinearly(lut_p, lut_size, ADC_sample);
 	return  temp;
 };
 
