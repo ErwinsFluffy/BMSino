@@ -54,36 +54,36 @@ AR += \
 arduino.ar \
 
 ELF += \
-BMSino_developexample.elf \
+BMSino.elf \
 
 HEX += \
-BMSino_developexample.hex \
+BMSino.hex \
 
 
 # All Target
-all: BMSino_developexample
+all: BMSino
 
 # Tool invocations
-BMSino_developexample: $(HEX)
+BMSino: $(HEX)
 	@echo 'Building target: $@'
 	@echo 'Printing size:'
-	"D:\sw\sloeber\arduinoPlugin\tools\arduino\avr-gcc\4.9.2-atmel3.5.3-arduino2/bin/avr-size" -A "D:/Dropbox/BMSino/FW/BMSino_developexample/Release/BMSino_developexample.elf"
+	"D:\sw\sloeber\arduinoPlugin\tools\arduino\avr-gcc\4.9.2-atmel3.5.3-arduino2/bin/avr-size" -A "D:/Dropbox/BMSino/FW/BMSino/Release/BMSino.elf"
 	@echo 'Finished building target: $@'
 	@echo ' '
 
 arduino.ar: $(AR_OBJ)
 	@echo 'Starting archiver'
-	"D:\sw\sloeber\arduinoPlugin\tools\arduino\avr-gcc\4.9.2-atmel3.5.3-arduino2/bin/avr-gcc-ar" rcs "D:/Dropbox/BMSino/FW/BMSino_developexample/Release/arduino.ar"  arduino.ar $(AR_OBJ)
+	"D:\sw\sloeber\arduinoPlugin\tools\arduino\avr-gcc\4.9.2-atmel3.5.3-arduino2/bin/avr-gcc-ar" rcs "D:/Dropbox/BMSino/FW/BMSino/Release/arduino.ar"  arduino.ar $(AR_OBJ)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-BMSino_developexample.elf: $(LINK_OBJ) $(AR)
+BMSino.elf: $(LINK_OBJ) $(AR)
 	@echo 'Starting combiner'
-	"D:\sw\sloeber\arduinoPlugin\tools\arduino\avr-gcc\4.9.2-atmel3.5.3-arduino2/bin/avr-gcc" -Os -g -flto -fuse-linker-plugin -Wl,--gc-sections -mmcu=atmega328p -o "D:/Dropbox/BMSino/FW/BMSino_developexample/Release/BMSino_developexample.elf"  $(LINK_OBJ) $(AR)  "-LD:/Dropbox/BMSino/FW/BMSino_developexample/Release" -lm
+	"D:\sw\sloeber\arduinoPlugin\tools\arduino\avr-gcc\4.9.2-atmel3.5.3-arduino2/bin/avr-gcc" -Os -g -flto -fuse-linker-plugin -Wl,--gc-sections -mmcu=atmega328p -o "D:/Dropbox/BMSino/FW/BMSino/Release/BMSino.elf"  $(LINK_OBJ) $(AR)  "-LD:/Dropbox/BMSino/FW/BMSino/Release" -lm
 	@echo 'Finished building: $@'
 	@echo ' '
 
-BMSino_developexample.hex: $(ELF)
+BMSino.hex: $(ELF)
 	@echo 'Create eeprom image'
 	${A.RECIPE.OBJCOPY.HEX.PATTERN}
 	${A.RECIPE.OBJCOPY.EEP.PATTERN}
