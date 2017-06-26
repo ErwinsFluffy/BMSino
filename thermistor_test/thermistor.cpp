@@ -160,20 +160,23 @@ THERMISTOR::THERMISTOR(){
 }
 
 boolean THERMISTOR::begin(thermistorType_t thermistorType_l, uint8_t ADCpin_l){
+		ADCpin = ADCpin_l;
 		if(thermistorType_l == CELL_NTC){			// BMSino CELL'S 10k NTCs
 			lut_p = NTCLE100E3103JB0;
 			lut_size = NTCLE100E3103JB0_LUT_SIZE;
+			return true;
 		}
 		else if(thermistorType_l == ONBOARD_NTC){	// BMSino BOARD 100k NTC
 			lut_p = NTCS0603E3104JXT;
 			lut_size = NTCS0603E3104JXT_LUT_SIZE;
+			return true;
 		}
 		else if(thermistorType_l == TEST_NTC){		// BMSino BOARD 100k NTC
 			lut_p = MF58;
 			lut_size = MF58_LUT_SIZE;
+			return true;
 		}
-		ADCpin = ADCpin_l;
-		return true;
+		return false;
 }
 
 int16_t THERMISTOR::getTemperature(){
