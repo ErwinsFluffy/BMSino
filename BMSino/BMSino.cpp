@@ -32,6 +32,8 @@ void BMSino::begin(){
 	pinMode(I2C_SCL_PIN, OUTPUT);
 	pinMode(TEMPERATURE_SENSOR_PIN, INPUT);
 
+	digitalWrite(AD7280_CS_PIN, HIGH);
+
 	/*	INIT THERMISTORS	*/
 	OnBoardNTC.begin(ONBOARD_NTC, TEMPERATURE_SENSOR_PIN);
 	// init cells thermistors here

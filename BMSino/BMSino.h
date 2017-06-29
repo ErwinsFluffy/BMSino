@@ -10,7 +10,10 @@
 
 #include "libraries\thermistor.h"
 #include "libraries\current_sensing.h"
+#include "libraries\AD7280A.h"
 
+
+// BMSino pinout
 #define ACTIVITY_LED_PIN			A5
 #define	TEMPERATURE_SENSOR_PIN		A4
 #define AIN_2_PIN					A3

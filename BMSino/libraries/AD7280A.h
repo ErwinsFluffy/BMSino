@@ -8,6 +8,10 @@
 #ifndef AD7280A_H
 #define AD7280A_H
 
+#include "Arduino.h"
+
+/* ________________ D E F I N I T I O N S ________________________*/
+
 // AD7280A Register file addresses
 #define AD7280A_CELL_VOLTAGE_1          0x00
 #define AD7280A_CELL_VOLTAGE_2          0x01
@@ -42,5 +46,7 @@
 
 
 
-
 #endif /* AD7280A_H */
+
+
+void AD7280_init();
