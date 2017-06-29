@@ -3,7 +3,7 @@
 BMSino/.settings/
 *.cproject
 BMSino/Release/
-Cuurent_Sensing/
+Current_Sensing/
 thermistor_test/
 RemoteSystemsTempFiles/
 BMSino/.ino.cpp
