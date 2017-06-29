@@ -32,7 +32,9 @@ void BMSino::begin(){
 	pinMode(I2C_SCL_PIN, OUTPUT);
 	pinMode(TEMPERATURE_SENSOR_PIN, INPUT);
 
+	/*	INIT PINS STATUS	*/
 	digitalWrite(AD7280_CS_PIN, HIGH);
+	digitalWrite(AD7280_CNVST_PIN,HIGH);
 
 	/*	INIT THERMISTORS	*/
 	OnBoardNTC.begin(ONBOARD_NTC, TEMPERATURE_SENSOR_PIN);
@@ -41,6 +43,8 @@ void BMSino::begin(){
 
 	/*	INIT CURRENT SENSOR		*/
 	Lem_Hais_50P.begin(LEM_HAIS_50_P);
+
+
 
 }
 
