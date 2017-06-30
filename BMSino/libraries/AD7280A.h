@@ -45,8 +45,13 @@
 #define AD7280A_NOT_CNVST_CONTROL       0x1D
 
 
+// class AD7280A
+class AD7280A{
+	public:
+		AD7280A();
+		boolean begin();
+};
+
 
 #endif /* AD7280A_H */
 
-
-void AD7280_init();

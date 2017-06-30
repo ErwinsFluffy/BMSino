@@ -35,6 +35,8 @@ void BMSino::begin(){
 	/*	INIT PINS STATUS	*/
 	digitalWrite(AD7280_CS_PIN, HIGH);
 	digitalWrite(AD7280_CNVST_PIN,HIGH);
+	digitalWrite(DCDC_EN_PIN, LOW);
+
 
 	/*	INIT THERMISTORS	*/
 	OnBoardNTC.begin(ONBOARD_NTC, TEMPERATURE_SENSOR_PIN);
